@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { ObjectId } from 'mongodb';
 import { getDatabase } from '@/lib/mongodb';
 import { getAuthUser } from '@/lib/auth';
-import { User } from '@/types';
 
 export async function POST(
   request: NextRequest,
@@ -21,7 +20,7 @@ export async function POST(
     const { userId } = await params;
 
     const db = await getDatabase();
-    const usersCollection = db.collection<User>('users');
+    const usersCollection = db.collection('users');
 
     // Get user to update
     const targetUser = await usersCollection.findOne({ _id: new ObjectId(userId) });
