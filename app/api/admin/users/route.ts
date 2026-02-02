@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { ObjectId } from 'mongodb';
 import { getDatabase } from '@/lib/mongodb';
 import { getAuthUser } from '@/lib/auth';
-import { User } from '@/types';
 
 export async function GET() {
   try {
@@ -16,7 +15,7 @@ export async function GET() {
     }
 
     const db = await getDatabase();
-    const usersCollection = db.collection<User>('users');
+    const usersCollection = db.collection('users');
     const inventoryCollection = db.collection('inventory');
 
     // Get all users
@@ -73,7 +72,7 @@ export async function DELETE(request: NextRequest) {
     }
 
     const db = await getDatabase();
-    const usersCollection = db.collection<User>('users');
+    const usersCollection = db.collection('users');
     const inventoryCollection = db.collection('inventory');
     const vendorsCollection = db.collection('vendors');
     const warehousesCollection = db.collection('warehouses');
