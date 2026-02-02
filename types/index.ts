@@ -1,5 +1,7 @@
+import { ObjectId } from 'mongodb';
+
 export interface User {
-  _id: string;
+  _id: ObjectId;
   username: string;
   passwordHash: string;
   isAdmin: boolean;
@@ -15,7 +17,7 @@ export interface LayawayReservation {
 }
 
 export interface InventoryItem {
-  _id: string;
+  _id: ObjectId;
   itemNumber: string;
   description: string;
   available: number;
@@ -31,13 +33,13 @@ export interface InventoryItem {
 }
 
 export interface Vendor {
-  _id: string;
+  _id: ObjectId;
   name: string;
   owner: string;
 }
 
 export interface Warehouse {
-  _id: string;
+  _id: ObjectId;
   name: string;
   owner: string;
 }
