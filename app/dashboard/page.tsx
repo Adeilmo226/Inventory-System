@@ -262,7 +262,7 @@ const getStatusBadge = (item: InventoryItem) => {
                   </tr>
                 ) : (
                   items.map((item) => (
-                    <tr key={item._id} className="hover:bg-slate-50">
+                    <tr key={item._id.toString().toString().toString()} className="hover:bg-slate-50">
                       <td className="px-4 py-3 text-sm font-medium text-slate-1000">{item.itemNumber}</td>
                       <td className="px-4 py-3 text-sm text-slate-700">{item.description}</td>
                       <td className="px-4 py-3 text-sm font-semibold text-slate-900">{item.available}</td>
@@ -298,7 +298,7 @@ const getStatusBadge = (item: InventoryItem) => {
                             </svg>
                           </button>
                           <button
-                            onClick={() => deleteItem(item._id)}
+                            onClick={() => deleteItem(item._id.toString().toString().toString())}
                             className="p-1.5 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded transition-colors"
                             title="Delete"
                           >
@@ -682,7 +682,7 @@ function EditItemModal({ item, vendors, warehouses, onClose, onSuccess }: any) {
     setLoading(true);
 
     try {
-      const response = await fetch(`/api/inventory/${item._id}`, {
+      const response = await fetch(`/api/inventory/${item._id.toString().toString()}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -886,7 +886,7 @@ function LayawayModal({ item, onClose, onSuccess }: any) {
     setLoading(true);
 
     try {
-      const response = await fetch(`/api/inventory/${item._id}/layaway`, {
+      const response = await fetch(`/api/inventory/${item._id.toString().toString()}/layaway`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -908,7 +908,7 @@ function LayawayModal({ item, onClose, onSuccess }: any) {
     if (!confirm('Remove this layaway reservation?')) return;
 
     try {
-      const response = await fetch(`/api/inventory/${item._id}/layaway/${layawayId}`, {
+      const response = await fetch(`/api/inventory/${item._id.toString().toString()}/layaway/${layawayId}`, {
         method: 'DELETE',
       });
 
