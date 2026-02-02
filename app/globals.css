@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --primary: 215 25% 27%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 215 25% 27%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  /* Consistent spacing rhythm - 8pt grid */
+  .spacing-1 { padding: 8px; }
+  .spacing-2 { padding: 16px; }
+  .spacing-3 { padding: 24px; }
+  .spacing-4 { padding: 32px; }
+  .spacing-5 { padding: 40px; }
+  .spacing-6 { padding: 48px; }
+  
+  /* Typography scale */
+  .text-display-sm { @apply text-2xl font-semibold leading-tight; }
+  .text-display-md { @apply text-3xl font-semibold leading-tight; }
+  .text-display-lg { @apply text-4xl font-semibold leading-tight; }
+  .text-heading { @apply text-xl font-semibold; }
+  .text-subheading { @apply text-lg font-medium; }
+  .text-body { @apply text-base; }
+  .text-caption { @apply text-sm text-muted-foreground; }
+  .text-label { @apply text-sm font-medium; }
+  
+  /* Consistent shadows */
+  .shadow-subtle { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
+  .shadow-card { box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); }
+  .shadow-elevated { box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
+}
